@@ -7,14 +7,14 @@ import wikipedia
 from openai import OpenAI
 recognizer = sr.Recognizer()
 engine = pyttsx3.init()
-newsapi = "d093053d72bc4024899159804e0e67d"
-OPENAI_API_KEY = ("ssk-proj-9rYSUkNf_bMzvaVNQmZRG9uub7vsrgtBKbfWx0WhAy4Ani-3btGay1oTPW6EageMwrbTdAkth1T3BlbkFJlDxLx6E26H1EAlWCqMC5bc-pLYytSAHv3gFZcZuAD9vCwi0StL9cwXvasLXEtYJi4912MMekUA")
+newsapi = "c4aad34c30fe491685e3b42369e5bf0d"
+OPENAI_API_KEY = ("sk-1234abcd5678efgh1234abcd5678efgh1234abcd")
 
 def speak(text):
     engine.say(text)
     engine.runAndWait()
 def aiprocess(command):
-    client = OpenAI(api_key="ssk-proj-9rYSUkNf_bMzvaVNQmZRG9uub7vsrgtBKbfWx0WhAy4Ani-3btGay1oTPW6EageMwrbTdAkth1T3BlbkFJlDxLx6E26H1EAlWCqMC5bc-pLYytSAHv3gFZcZuAD9vCwi0StL9cwXvasLXEtYJi4912MMekUA")
+    client = OpenAI(api_key="sk-1234abcd5678efgh1234abcd5678efgh1234abcd")
     completion = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
