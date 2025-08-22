@@ -83,21 +83,23 @@ def processCommand(c):
 
 if __name__ == "__main__":
     speak("Initializing Jarvis...")
-    wake_words = ["jarvis", "jarvish", "service"]
+    wake_words = ["jarvis"]
     recognizer = sr.Recognizer()   
     while True:
         try:
             with sr.Microphone() as source:
                 print("Listening...")
-                recognizer.adjust_for_ambient_noise(source, duration=1)
+                recognizer.adjust_for_ambient_noise(source, duration=0.3)
                 audio = recognizer.listen(source)
                 word = recognizer.recognize_google(audio)
+                print("Heard (wake check):", word)
 
             if any(w in word.lower() for w in wake_words):
                 speak("Yes!")
                 with sr.Microphone() as source:
                     print("Jarvis Active...!")
-                    recognizer.adjust_for_ambient_noise(source, duration=0.5)
+                    recognizer.adjust_for_ambient_noise(source, duration=0.3)
+
                     audio = recognizer.listen(source)
                     command = recognizer.recognize_google(audio)
                     print(f"Command: {command}")
